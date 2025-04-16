@@ -21,6 +21,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+// Static Mesh Actor
+	UPROPERTY(EditAnywhere, Category= Mesh)
+	TObjectPtr<UStaticMeshComponent> MeshComponent;
+//
+	
 // Health Section
 	TObjectPtr<UHealthComponent> HealthComponent;
 //

@@ -3,13 +3,18 @@
 
 #include "ShootTarget.h"
 
+#include "MVVMCodeSample/MVVMCodeSampleCollision.h"
 #include "MVVMCodeSample/ActorComponent/HealthComponent.h"
 
 // Sets default values
 AShootTarget::AShootTarget()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
+// Static Mesh Actor
+	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Static Mesh Component"));
+	MeshComponent->SetCollisionProfileName(CPROFILE_PHYSICSACTOR);
+	MeshComponent->SetSimulatePhysics(true);
+//
 	
 // Health Section
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
