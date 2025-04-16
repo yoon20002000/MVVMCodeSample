@@ -9,6 +9,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "ActorComponent/HealthComponent.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -34,7 +35,10 @@ AMVVMCodeSampleCharacter::AMVVMCodeSampleCharacter()
 	Mesh1P->bCastDynamicShadow = false;
 	Mesh1P->CastShadow = false;
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
-
+	
+// Health Component Section
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
+//
 }
 
 //////////////////////////////////////////////////////////////////////////// Input

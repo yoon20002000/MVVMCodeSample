@@ -7,6 +7,7 @@
 #include "Logging/LogMacros.h"
 #include "MVVMCodeSampleCharacter.generated.h"
 
+class UHealthComponent;
 class UInputComponent;
 class USkeletalMeshComponent;
 class UCameraComponent;
@@ -67,5 +68,12 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+	// HealthComponent
+public:
+	UFUNCTION()
+	UHealthComponent* GetHealthComponent() const { return HealthComponent; }
+private:
+	TObjectPtr<UHealthComponent> HealthComponent;
+	//
 };
 
