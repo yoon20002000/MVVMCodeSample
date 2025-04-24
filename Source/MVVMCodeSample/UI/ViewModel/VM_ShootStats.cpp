@@ -3,3 +3,6 @@
 
 #include "VM_ShootStats.h"
 
+UVM_ShootStats::UVM_ShootStats()
+{
+}

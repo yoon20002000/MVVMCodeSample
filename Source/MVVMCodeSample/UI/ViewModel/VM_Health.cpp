@@ -3,3 +3,6 @@
 
 #include "VM_Health.h"
 
+UVM_Health::UVM_Health()
+{
+}
