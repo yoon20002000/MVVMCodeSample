@@ -13,7 +13,7 @@ class UMVVMViewModelBase;
 /**
  * 
  */
-UCLASS()
+UCLASS(DisplayName="MVVM ViewModel Subsystem")
 class MVVMCODESAMPLE_API UMVVMViewModelSubSystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
@@ -21,8 +21,11 @@ public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Deinitialize() override;
 	
+	UFUNCTION(BlueprintCallable)
 	UMVVMViewModelBase* CreateViewModel(const FMVVMViewModelContext& InContext,const UClass* InViewModelClass);
+	UFUNCTION(BlueprintCallable)
 	UMVVMViewModelBase* GetViewModel(const FName& InContextName,const UMVVMViewModelBase* InViewModelClass) const;
+	UFUNCTION(BlueprintCallable)
 	bool RemoveViewModel(const FName& InContextName, const UMVVMViewModelBase* InViewModelClass);
 	
 private:
