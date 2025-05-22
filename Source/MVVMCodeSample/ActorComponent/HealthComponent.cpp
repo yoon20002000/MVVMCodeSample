@@ -9,16 +9,12 @@ UHealthComponent::UHealthComponent()
 
 	SetMaxHealth(100);
 	SetHealth(MaxHealth);
-	// ...
 }
 
 
-// Called when the game starts
 void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
 	
 }
 void UHealthComponent::AddHealth(float AddHealth)

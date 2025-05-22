@@ -33,18 +33,24 @@ UMVVMViewModelBase* UMVVMViewModelSubSystem::CreateViewModel(const FMVVMViewMode
 
 UMVVMViewModelBase* UMVVMViewModelSubSystem::GetViewModel(const FName& InContextName, const UMVVMViewModelBase* InViewModelClass) const
 {
-	UMVVMViewModelCollectionObject* ViewModelCollection = GetViewModelCollection();
+	if (UMVVMViewModelCollectionObject* ViewModelCollection = GetViewModelCollection())
+	{
+		UMVVMViewModelBase* ViewModel = ViewModelCollection->FindViewModelInstance(CreateViewModelContext(InContextName, InViewModelClass));
 
-	UMVVMViewModelBase* ViewModel = ViewModelCollection->FindViewModelInstance(CreateViewModelContext(InContextName, InViewModelClass));
+		return ViewModel;	
+	}
 
-	return ViewModel;
+	return nullptr;
 }
 
 bool UMVVMViewModelSubSystem::RemoveViewModel(const FName& InContextName, const UMVVMViewModelBase* InViewModelClass)
 {
-	UMVVMViewModelCollectionObject* ViewModelCollection = GetViewModelCollection();
+	if (UMVVMViewModelCollectionObject* ViewModelCollection = GetViewModelCollection())
+	{
+		return ViewModelCollection->RemoveViewModel(CreateViewModelContext(InContextName, InViewModelClass));	
+	}
 
-	return ViewModelCollection->RemoveViewModel(CreateViewModelContext(InContextName, InViewModelClass));
+	return false;
 }
 
 UMVVMGameSubsystem* UMVVMViewModelSubSystem::GetMVVMSubsystem() const

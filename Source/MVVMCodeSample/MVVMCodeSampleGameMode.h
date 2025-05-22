@@ -6,6 +6,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "MVVMCodeSampleGameMode.generated.h"
 
+class UUI_Battle;
+
 UCLASS(minimalapi)
 class AMVVMCodeSampleGameMode : public AGameModeBase
 {
@@ -13,6 +15,9 @@ class AMVVMCodeSampleGameMode : public AGameModeBase
 
 public:
 	AMVVMCodeSampleGameMode();
+private:
+	UPROPERTY(EditAnywhere, meta=(allowPrivateAccess=true))
+	TSoftClassPtr<UUI_Battle> UIBattle;
 };
 
 
